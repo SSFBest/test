@@ -1,0 +1,31 @@
+#-*- coding: utf-8 -*-
+import simplejson
+import re
+class CommentPipeline(object):
+
+	# def __init__(self):
+		# self.mapping = settings['SOLR_MAPPING'].items()
+		# self.solr = pysolr.Solr(settings['SOLR_URL'], timeout=10)
+	# def process_comment(self,json):
+	# 	print json,'33'
+
+	def process_item(self):
+		print '44444444444444444'
+		# resp=http('GET','http://club.jd.com/productpage/p-1925170-s-3-t-3-p-0.html',callback='process_comment')
+		# print resp
+		eval('process_comment({"productAttr":null,"productCommentSummary":null})')
+		return ''
+def process_comment(json):
+	d=simplejson.loads(json)
+	print d
+
+def process_item():
+	resp='process_comment({"productAttr":null,"productCommentSummary":null});'
+	resp,num=re.subn(r'(process_comment\()({.*})(\));',r'\1%s\2%s\3'%('\'','\''),resp)
+	print resp,num
+	eval(resp)
+	return ''
+if __name__ == '__main__':
+	# c=CommentPipeline()
+	# c.process_item()
+	process_item()
