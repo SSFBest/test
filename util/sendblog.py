@@ -25,7 +25,7 @@ default_logger = logging.getLogger(__name__)
 default_logger.setLevel(logging.DEBUG)
 default_logger.addHandler(log_console)
 
-USER={'user1':('goldhwi','goldhwi.com.cn','5fbb7ffc7f53585700e3ec0ba815ae5d'),'user2':('hulianjiang@15yueliang.com','iWeibo8866','fd89d92014211a8cf3632814249f115e')}
+USER={'user1':('goldhwi','password','5fbb7ffc7f53585700e3ec0ba815ae5d'),'user2':('hulianjiang@15yueliang.com','password','fd89d92014211a8cf3632814249f115e')}
 
 head_desc=u'''
 <div style='padding:0 0 20px 0'>
@@ -78,7 +78,7 @@ def read_json(path):
 	d = json.load(open(path, 'r'),strict=False)
 	return d
 
-			
+
 def process(sheet,u):
 	word=[]
 	name=['shouji','jiaju','qiche','guoji','meizhuang','xiansheng']
@@ -112,7 +112,7 @@ def process(sheet,u):
 			'head_info_category':head['head_category'],
 			'head_info_category_link':head['head_category_link'],
 			})
-		
+
 		head_info_=head_info%(head_info_dic)
 		per_row=2
 		# default_logger.info(left)
@@ -136,7 +136,7 @@ def process(sheet,u):
 		send_blog(blog_title,blog_body,blog_class,tag,u=u)
 
 
-#http://bbs.csdn.net/topics/390083000解决B06013要加refferft 
+#http://bbs.csdn.net/topics/390083000解决B06013要加refferft
 headers = {
 'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:46.0) Gecko/20100101 Firefox/46.0',
 }

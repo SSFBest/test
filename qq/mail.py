@@ -50,10 +50,10 @@ html_content='''您好,先生/女士,
 sendmail={
 	'prefix':'m4',
 	'title':u'这是标题',
-    'm1':('smtp.exmail.qq.com',25,'service@youxi16.com','woshiyitiaolang321',True),
-    'm2':('smtp.163.com',25,'goldhwi@163.com','282lkpntmdc&#!',True),#适合单独发用
-    'm3':('smtp.qq.com',25,'41578974@qq.com','goldhwi.com.cn',True),#不能用，要授权码
-    'm4':('smtp.mxhichina.com',25,'service@15yueliang.com','1qaz2WSX!@#',False),
+    'm1':('smtp.exmail.qq.com',25,'service@youxi16.com','password',True),
+    'm2':('smtp.163.com',25,'goldhwi@163.com','password&#!',True),#适合单独发用
+    'm3':('smtp.qq.com',25,'41578974@qq.com','password',True),#不能用，要授权码
+    'm4':('smtp.mxhichina.com',25,'service@15yueliang.com','password',False),
 	}
 dbargs = dict(
 			host='192.168.56.181',

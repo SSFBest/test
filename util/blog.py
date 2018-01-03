@@ -25,7 +25,7 @@ default_logger = logging.getLogger(__name__)
 default_logger.setLevel(logging.DEBUG)
 default_logger.addHandler(log_console)
 
-#http://bbs.csdn.net/topics/390083000解决B06013要加refferft 
+#http://bbs.csdn.net/topics/390083000解决B06013要加refferft
 headers = {
 'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:46.0) Gecko/20100101 Firefox/46.0',
 }
@@ -104,7 +104,7 @@ class User(object):
 		self.blog_vtoken=blog_vtoken
 		super(User, self).__init__()
 	def login(self):
-		
+
 		url = 'http://login.sina.com.cn/sso/login.php?client=ssologin.js(v1.4.18)'
 		try:
 			servertime, nonce,pubkey,rsakv = get_servertime()
@@ -117,7 +117,7 @@ class User(object):
 		postdata['su'] = get_user(self.username)
 		postdata['sp'] = get_pwd_rsa(self.password, servertime, nonce,pubkey)
 		postdata = urllib.urlencode(postdata)
-		
+
 		req  = urllib2.Request(
 			url = url,
 			data = postdata,
@@ -144,9 +144,9 @@ class User(object):
 	def followed(self,dstuid):
 		followedurl = "http://weibo.com/aj/f/followed?ajwvr=6&__rnd=%s"% int(time.time())
 		data = {
-				'uid':'%s'%dstuid, 
+				'uid':'%s'%dstuid,
 				'rank':'0',
-				'location':'mblog', 
+				'location':'mblog',
 				'_t':'0',
 				'extra':'',
 				'f':'1',
@@ -265,7 +265,7 @@ class User(object):
 			kw.update(**blog_vote)
 		headers.update(Referer='http://control.blog.sina.com.cn/admin/article/article_add.php')
 		result=http('POST','http://control.blog.sina.com.cn/admin/article/article_post.php',headers,**kw)
-		
+
 		default_logger.info('-----------------result-----------------------------------')
 		default_logger.info(result)
 		default_logger.info('----------------------------------------------------')
@@ -280,9 +280,9 @@ class User(object):
 		# default_logger.info('-----------------kw-----------------------------------')
 		# default_logger.info(kw)
 		# default_logger.info('----------------------------------------------------')
-	
+
 if __name__ == '__main__':
-	USER={'user1':('goldhwi','goldhwi.com.cn','5fbb7ffc7f53585700e3ec0ba815ae5d'),'user2':('hulianjiang@15yueliang.com','iWeibo8866','fd89d92014211a8cf3632814249f115e')}
+	USER={'user1':('goldhwi','password','5fbb7ffc7f53585700e3ec0ba815ae5d'),'user2':('hulianjiang@15yueliang.com','password','fd89d92014211a8cf3632814249f115e')}
 	user=USER.get('user2')
 	u=User(user[0],user[1],user[2])
 	u.login()

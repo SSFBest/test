@@ -43,7 +43,7 @@ def process(user,state='state_1'):
 		for p in n:
 			uid = p[0]
 			print uid
-			success=user.followed(uid) 
+			success=user.followed(uid)
 			if success:
 				# print 'cid is:',type(cid),type(p[0])
 				sql3=u'update appsWeiboUsers set %s=1,%s_time=\'%s\' where uid=%s'%(state,state,datetime.datetime.now(),uid)
@@ -57,9 +57,9 @@ def process(user,state='state_1'):
 	if __name__ == '__main__':
 		follow()
 
-	
+
 if __name__ == '__main__':
-	USER={'user1':('goldhwi','goldhwi.com.cn','5fbb7ffc7f53585700e3ec0ba815ae5d'),'user2':('hulianjiang@15yueliang.com','iWeibo8866','fd89d92014211a8cf3632814249f115e')}
+	USER={'user1':('goldhwi','password','5fbb7ffc7f53585700e3ec0ba815ae5d'),'user2':('hulianjiang@15yueliang.com','password','fd89d92014211a8cf3632814249f115e')}
 	user=USER.get('user2')
 	u=blog.User(user[0],user[1],user[2])
 	u.login()
